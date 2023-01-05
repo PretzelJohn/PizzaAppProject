@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="res.layout.MainController">
+  <children>
+      <HBox prefHeight="120.0" prefWidth="1872.0">
+         <children>
+            <VBox prefHeight="120.0" prefWidth="120.0" spacing="5.0">
+               <children>
+                  <ToggleButton fx:id="pickup_btn" contentDisplay="CENTER" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectOrderType" prefHeight="45.0" prefWidth="120.0" selected="true" text="Pickup" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="order_type" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton fx:id="delivery_btn" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectOrderType" prefHeight="45.0" prefWidth="120.0" text="Delivery" textAlignment="CENTER" toggleGroup="$order_type">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                  </ToggleButton>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="220.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <HBox minHeight="-Infinity" prefHeight="35.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@../icons/nav_bar/search.png" />
+                           </image>
+                        </ImageView>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Lookup">
+                           <font>
+                              <Font name="Segoe UI" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="customer_search_input" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#updateSearchInput" prefHeight="60.0" prefWidth="200.0" promptText="xxx-xxx-xxxx" text="xxx-xxx-xxxx">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" right="5.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </VBox>
+            <GridPane prefHeight="120.0" HBox.hgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints prefHeight="60.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fx:id="time_text" strokeType="OUTSIDE" strokeWidth="0.0" text="12:47 PM" textOrigin="BOTTOM" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="menu_btn" defaultButton="true" disable="true" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Menu" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/nav_bar/menu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="coupons_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Coupons" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/nav_bar/coupons.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="functions_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Functions" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/nav_bar/functions.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="orders_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Orders" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/nav_bar/orders.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="logout_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Logout" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Segoe UI" size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/nav_bar/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin>
+            </GridPane>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+      <Separator prefHeight="8.0" prefWidth="200.0" />
+      <HBox minHeight="480.0" prefHeight="930.0" prefWidth="1872.0">
+         <children>
+            <StackPane prefHeight="150.0">
+               <children>
+                  <VBox fillWidth="false" minHeight="480.0" prefHeight="930.0" prefWidth="1240.0">
+                     <children>
+                        <GridPane fx:id="menu_nav_grid" alignment="CENTER" minHeight="-Infinity" prefHeight="80.0" prefWidth="1240.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                            <Button fx:id="menu_back_btn" alignment="CENTER" disable="true" mnemonicParsing="false" prefHeight="60.0" prefWidth="175.0" text="Back" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Button>
+                              <Text fx:id="title_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" textAlignment="CENTER" textOrigin="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font name="Segoe UI" size="32.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="menu_done_btn" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="60.0" prefWidth="175.0" text="Done" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                        <Separator prefWidth="1240.0" />
+                        <StackPane>
+                           <children>
+                              <GridPane fx:id="menu_level_1_2_container" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="850.0" prefWidth="1240.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="395.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="395.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="395.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="-Infinity" prefHeight="360.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="-Infinity" prefHeight="360.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Pizza" textAlignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/menu/pizza.png" />
+                                             </image>
+                                             <viewport>
+                                                <Rectangle2D />
+                                             </viewport>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Segoe UI" size="24.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Sides" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                                       <font>
+                                          <Font name="Segoe UI" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/menu/sides.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Drinks" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                                       <font>
+                                          <Font name="Segoe UI" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/menu/drinks.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Salads" textAlignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/menu/salads.png" />
+                                             </image>
+                                             <viewport>
+                                                <Rectangle2D />
+                                             </viewport>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Segoe UI" size="24.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Dessert" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                                       <font>
+                                          <Font name="Segoe UI" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/menu/dessert.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Veggie" textAlignment="CENTER" visible="false" GridPane.columnIndex="2" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
+                                       <font>
+                                          <Font name="Segoe UI" size="24.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/menu/pizza.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <VBox fx:id="menu_level_3_container" prefHeight="850.0" prefWidth="1240.0" visible="false">
+                                 <children>
+                                    <GridPane fx:id="menu_level_3_options_grid" prefHeight="500.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="400.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Crust:" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <GridPane fx:id="menu_level_3_size_grid" GridPane.columnIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="8&quot;" />
+                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="10&quot;" GridPane.columnIndex="1" />
+                                                <Button defaultButton="true" disable="true" mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="14&quot;" GridPane.columnIndex="2" />
+                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="210.0" text="18&quot;" GridPane.columnIndex="3" />
+                                             </children>
+                                          </GridPane>
+                                          <GridPane fx:id="menu_level_3_crust_grid" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="280.0" text="Thin" />
+                                                <Button defaultButton="true" disable="true" mnemonicParsing="false" prefHeight="100.0" prefWidth="280.0" text="Pan" GridPane.columnIndex="1" />
+                                                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="280.0" text="Stuffed" GridPane.columnIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane fx:id="menu_level_3_toppings_grid" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="850.0" prefWidth="1240.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                        <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                          <ColumnConstraints hgrow="SOMETIMES" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints prefHeight="275.0" vgrow="SOMETIMES" />
+                                        <RowConstraints prefHeight="275.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ToggleButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Pepperoni" textAlignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Bacon" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" layoutX="320.0" layoutY="10.0" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Ham" textAlignment="CENTER" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" layoutX="630.0" layoutY="10.0" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Sausage" textAlignment="CENTER" GridPane.columnIndex="3">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" layoutX="940.0" layoutY="10.0" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Jalapenos" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" layoutX="10.0" layoutY="310.0" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Green Peppers" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" layoutX="320.0" layoutY="310.0" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Black Olives" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                          <ToggleButton contentDisplay="CENTER" layoutX="630.0" layoutY="310.0" mnemonicParsing="false" prefHeight="360.0" prefWidth="360.0" text="Spinach" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Segoe UI" size="24.0" />
+                                             </font>
+                                          </ToggleButton>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+                  <ListView fx:id="search_results" focusTraversable="false" maxHeight="100.0" maxWidth="-Infinity" prefWidth="200.0" translateX="130.0" visible="false" StackPane.alignment="TOP_LEFT">
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                  </ListView>
+               </children>
+            </StackPane>
+            <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="8.0" />
+            <VBox fillWidth="false" minHeight="480.0" prefHeight="930.0" prefWidth="624.0">
+               <children>
+                  <GridPane minHeight="-Infinity" prefHeight="60.0" prefWidth="614.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order #" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Segoe UI" size="28.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="order_num_text" strokeType="OUTSIDE" strokeWidth="0.0" text="78">
+                                 <font>
+                                    <Font name="Segoe UI" size="28.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <Text fx:id="order_type_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Pickup" textAlignment="CENTER" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="28.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </GridPane>
+                  <HBox minHeight="-Infinity" prefHeight="150.0" prefWidth="614.0">
+                     <children>
+                        <VBox fillWidth="false" prefHeight="150.0" prefWidth="420.0">
+                           <children>
+                              <Text fx:id="customer_name" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer name">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="customer_phone" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+                                 <font>
+                                    <Font name="Segoe UI" size="23.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="customer_address_1" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" textOrigin="TOP">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="customer_address_2" strokeType="OUTSIDE" strokeWidth="0.0" text="City/State/ZIP">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox prefHeight="150.0" prefWidth="194.0">
+                           <children>
+                              <Button fx:id="notes_btn" alignment="CENTER" contentDisplay="CENTER" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="164.0" text="Notes" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Segoe UI" size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <ListView fx:id="order_item_list" prefHeight="450.0" prefWidth="614.0" />
+                  <GridPane minHeight="-Infinity" prefHeight="150.0" prefWidth="614.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="30.0" prefWidth="30.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="-Infinity" prefWidth="90.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$" textAlignment="CENTER" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="subtotal_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Taxes" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="taxes_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fees" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="fees_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\$" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="total_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Segoe UI Bold" size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane cache="true" minHeight="60.0" prefHeight="120.0" prefWidth="614.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                      <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="cash_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Cash" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="credit_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Credit" textAlignment="CENTER" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="check_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Check" textAlignment="CENTER" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="Segoe UI" size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+  </children>
+   <padding>
+      <Insets bottom="2.0" left="24.0" right="24.0" />
+   </padding>
+</VBox>
